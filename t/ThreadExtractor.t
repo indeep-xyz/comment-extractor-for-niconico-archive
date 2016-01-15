@@ -8,7 +8,7 @@ use utf8;
 use File::Spec;
 use File::Basename qw/dirname/;
 use lib File::Spec->catdir(dirname(__FILE__), '..', 'lib');
-use File::NicoNicoLog::Thread;
+use File::OpenData::NicoVideo::Thread;
 
 use Test::Simple tests => 3;
 
@@ -25,7 +25,7 @@ sub first_line {
 # = = = = = = = = = = = = = = = = = = = = =
 # tasks
 
-my $ex = File::NicoNicoLog::ThreadExtractor->new(
+my $ex = File::OpenData::NicoVideo::ThreadExtractor->new(
     dir => $THREAD_DIR
     );
 

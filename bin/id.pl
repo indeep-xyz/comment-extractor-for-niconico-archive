@@ -9,7 +9,7 @@ use File::Basename qw/dirname/;
 use lib File::Spec->catdir(dirname(__FILE__), '..', 'lib');
 
 use Getopt::Std;
-use File::NicoNicoLog::ThreadExtractor;
+use File::OpenData::NicoVideo::ThreadExtractor;
 
 my $THREAD_DIR = File::Spec->catdir(
     dirname(__FILE__), '..', 'assets', 'thread');
@@ -30,7 +30,7 @@ $opts{'d'} ||= $THREAD_DIR;
 # main
 
 my $file_number = $ARGV[0] || '1';
-my $thread = File::NicoNicoLog::ThreadExtractor->new(
+my $thread = File::OpenData::NicoVideo::ThreadExtractor->new(
     dir => $opts{'d'}
     );
 

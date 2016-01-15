@@ -10,7 +10,7 @@ use File::Basename qw/dirname/;
 use lib File::Spec->catdir(dirname(__FILE__), '..', 'lib');
 
 use Getopt::Std;
-use File::NicoNicoLog::Thread;
+use File::OpenData::NicoVideo::Thread;
 
 my $THREAD_DIR = File::Spec->catdir(
     dirname(__FILE__), '..', 'assets', 'thread');
@@ -35,7 +35,7 @@ $opts{'s'} ||= '';
 # main
 
 my $id = $ARGV[0] || 'sm10002';
-my $thread = File::NicoNicoLog::Thread->new(
+my $thread = File::OpenData::NicoVideo::Thread->new(
     dir  => $opts{'d'},
     id   => $id,
     );

@@ -9,7 +9,7 @@ use File::Spec;
 use File::Basename qw/dirname/;
 use lib File::Spec->catdir(dirname(__FILE__), '..', 'lib');
 use Storable qw/dclone/;
-use File::NicoNicoLog::Thread;
+use File::OpenData::NicoVideo::Thread;
 
 use Test::Simple tests => 5;
 
@@ -33,7 +33,7 @@ sub compare_head {
 # = = = = = = = = = = = = = = = = = = = = =
 # tasks
 
-my $thread = File::NicoNicoLog::Thread->new(
+my $thread = File::OpenData::NicoVideo::Thread->new(
     dir => $THREAD_DIR,
     id  => 'sm10002',
     );

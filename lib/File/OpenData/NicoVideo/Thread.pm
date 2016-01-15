@@ -1,6 +1,6 @@
 # *-* encoding: utf8 *-*
 
-package File::NicoNicoLog::Thread;
+package File::OpenData::NicoVideo::Thread;
 
 use 5.0080001;
 use strict;
@@ -8,7 +8,7 @@ use warnings;
 use utf8;
 
 use JSON::PP;
-use File::NicoNicoLog::ThreadExtractor;
+use File::OpenData::NicoVideo::ThreadExtractor;
 
 our $VERSION = "0.1";
 our @JSON_KEY_ORDER = qw/date no vpos comment command/;
@@ -128,7 +128,7 @@ sub _sort {
 sub _init_raw {
   my $self = shift;
   my $id   = $self->{id};
-  my $extractor = File::NicoNicoLog::ThreadExtractor->new(
+  my $extractor = File::OpenData::NicoVideo::ThreadExtractor->new(
       dir => $self->{dir});
 
   $self->{raw} = $extractor->thread($id);

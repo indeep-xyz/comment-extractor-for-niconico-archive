@@ -1,6 +1,6 @@
 # *-* encoding: utf8 *-*
 
-package File::NicoNicoLog::ThreadExtractor;
+package File::OpenData::NicoVideo::ThreadExtractor;
 
 use 5.0080001;
 use strict;
