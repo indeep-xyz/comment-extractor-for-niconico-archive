@@ -12,6 +12,8 @@ use lib File::Spec->catdir(dirname(__FILE__), '..', 'lib');
 use Getopt::Std;
 use File::OpenData::NicoVideo::Thread;
 
+binmode(STDOUT, ":utf8");
+
 my $THREAD_DIR = File::Spec->catdir(
     dirname(__FILE__), '..', 'assets', 'thread');
 
@@ -39,6 +41,9 @@ my $thread = File::OpenData::NicoVideo::Thread->new(
     dir  => $opts{'d'},
     id   => $id,
     );
+
+# random thread
+$thread->set_random_id if ($id eq 'random');
 
 # sort
 $thread->sort_by_vpos if ($opts{'s'} eq 'vpos');

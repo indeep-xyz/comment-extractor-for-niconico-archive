@@ -10,7 +10,7 @@ use utf8;
 use JSON::PP;
 use File::OpenData::NicoVideo::ThreadPicker;
 
-our $VERSION = "0.1";
+our $VERSION = "0.2";
 our @JSON_KEY_ORDER = qw/date no vpos comment command/;
 
 # = = = = = = = = = = = = = = = = = = = = =
@@ -82,6 +82,10 @@ sub json_originally {
 # = = = = = = = = = = = = = = = = = = = = =
 # public methods (update)
 
+sub set_random_id {
+  $_[0]->{id} = $_[0]->_init_picker->random_id
+}
+
 sub sort_by_date {
   $_[0]->_sort('date');
   $_[0]
@@ -128,14 +132,18 @@ sub _sort {
 sub _init_raw {
   my $self = shift;
   my $id   = $self->{id};
-  my $extractor = File::OpenData::NicoVideo::ThreadPicker->new(
-      dir => $self->{dir});
+  my $picker = $self->_init_picker;
 
-  $self->{raw} = $extractor->thread($id);
+  $self->{raw} = $picker->thread($id);
 }
 
 # = = = = = = = = = = = = = = = = = = = = =
 # private methods (other)
+
+sub _init_picker {
+  File::OpenData::NicoVideo::ThreadPicker->new(
+      dir => $_[0]->{dir});
+}
 
 # Make JSON string in the same style
 # as the original data
