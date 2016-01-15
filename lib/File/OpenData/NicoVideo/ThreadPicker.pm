@@ -1,6 +1,6 @@
 # *-* encoding: utf8 *-*
 
-package File::OpenData::NicoVideo::ThreadExtractor;
+package File::OpenData::NicoVideo::ThreadPicker;
 
 use 5.0080001;
 use strict;
@@ -9,7 +9,7 @@ use utf8;
 
 use Archive::Tar;
 
-our $VERSION = "0.1.1";
+our $VERSION = "0.1.2";
 
 # = = = = = = = = = = = = = = = = = = = = =
 # public methods

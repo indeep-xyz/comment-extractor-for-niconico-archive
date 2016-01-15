@@ -25,20 +25,20 @@ sub first_line {
 # = = = = = = = = = = = = = = = = = = = = =
 # tasks
 
-my $ex = File::OpenData::NicoVideo::ThreadExtractor->new(
+my $picker = File::OpenData::NicoVideo::ThreadPicker->new(
     dir => $THREAD_DIR
     );
 
-ok(($ex->list_files('0001'))[0] eq '0001/',
-    '$instance->list_files');
+ok(($picker->list_files('0001'))[0] eq '0001/',
+    '$picker->list_files');
 
-ok(($ex->list_ids('0001'))[0] eq 'sm14759',
-    '$instance->list_ids');
+ok(($picker->list_ids('0001'))[0] eq 'sm14759',
+    '$picker->list_ids');
 
 {
-  my $line = first_line($ex->thread('sm10002'));
+  my $line = first_line($picker->thread('sm10002'));
   my $sample_line = '{"date":1173247452,"no":1,"vpos":2153,"comment":"\u2191\u5973\u306e\u5b50","command":"shita pink"}';
 
-  ok($line eq $sample_line, '$instance->thread');
+  ok($line eq $sample_line, '$picker->thread');
 }
 

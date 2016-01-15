@@ -8,7 +8,7 @@ use warnings;
 use utf8;
 
 use JSON::PP;
-use File::OpenData::NicoVideo::ThreadExtractor;
+use File::OpenData::NicoVideo::ThreadPicker;
 
 our $VERSION = "0.1";
 our @JSON_KEY_ORDER = qw/date no vpos comment command/;
@@ -128,7 +128,7 @@ sub _sort {
 sub _init_raw {
   my $self = shift;
   my $id   = $self->{id};
-  my $extractor = File::OpenData::NicoVideo::ThreadExtractor->new(
+  my $extractor = File::OpenData::NicoVideo::ThreadPicker->new(
       dir => $self->{dir});
 
   $self->{raw} = $extractor->thread($id);
