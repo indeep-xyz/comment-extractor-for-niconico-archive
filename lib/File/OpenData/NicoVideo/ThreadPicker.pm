@@ -42,7 +42,7 @@ sub thread {
 
 # ret
 #   raw string of a video thread
-sub pick_random {
+sub random_thread {
   $_[0]->thread($_[0]->random_id);
 }
 
